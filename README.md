@@ -12,7 +12,8 @@ En esta parte se implementa un balanceador de carga usando **Nginx** que distrib
 
 ## 🧱 Estructura del Proyecto
 
-![alt text](image.png)
+<img width="236" height="490" alt="image" src="https://github.com/user-attachments/assets/801bbbcf-6f84-4b8c-a276-edbfd9a1d6ea" />
+
 
 ---
 
