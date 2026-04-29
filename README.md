@@ -1,16 +1,16 @@
-# 🧪 Laboratorio: Configuración de Balanceadores de Carga
+# Laboratorio: Configuración de Balanceadores de Carga
 
 **Curso:** Desarrollo de Soluciones en la Nube
 
 ---
 
-# 🚀 PARTE A — Balanceador de carga LOCAL con Node.js + Nginx
+# PARTE A — Balanceador de carga LOCAL con Node.js + Nginx
 
 En esta parte se implementa un balanceador de carga usando **Nginx** que distribuye tráfico hacia múltiples instancias de una aplicación **Node.js** ejecutándose en distintos puertos.
 
 ---
 
-## 🧱 Estructura del Proyecto
+##  Estructura del Proyecto
 
 <img width="236" height="490" alt="image" src="https://github.com/user-attachments/assets/801bbbcf-6f84-4b8c-a276-edbfd9a1d6ea" />
 
@@ -44,13 +44,13 @@ nginx -v
 
 ---
 
-## 🧱 Paso 2: Estructura del proyecto
+## Paso 2: Estructura del proyecto
 
 ![alt text](image.png)
 
 ---
 
-## 📦 Paso 3: Instalación del proyecto
+## Paso 3: Instalación del proyecto
 
 Dentro de la carpeta del proyecto:
 
@@ -60,7 +60,7 @@ npm install
 
 ---
 
-## 🖥️ Paso 4: Ejecución de instancias Node.js
+##  Paso 4: Ejecución de instancias Node.js
 
 Se ejecutan **3 servidores backend en diferentes puertos**:
 
@@ -70,7 +70,7 @@ PORT=8082 INSTANCE_ID=B node index.js
 PORT=8083 INSTANCE_ID=C node index.js
 ```
 
-💡 Alternativa en segundo plano:
+Alternativa en segundo plano:
 
 ```bash
 PORT=8081 INSTANCE_ID=A node index.js &
@@ -80,7 +80,7 @@ PORT=8083 INSTANCE_ID=C node index.js &
 
 ---
 
-## 🧠 Paso 5: Código relevante (`index.js`)
+##  Paso 5: Código relevante (`index.js`)
 
 ```js
 const INSTANCE_ID = process.env.INSTANCE_ID || 'A';
@@ -90,7 +90,7 @@ Permite identificar qué instancia responde.
 
 ---
 
-## 🔐 Paso 6: Configuración del archivo `.env`
+##  Paso 6: Configuración del archivo `.env`
 
 ```env
 PORT=8081
@@ -108,7 +108,7 @@ JWT_SECRET=mi_secreto
 
 ---
 
-## 📦 Paso 7: `.gitignore`
+## Paso 7: `.gitignore`
 
 ```gitignore
 node_modules/
@@ -143,7 +143,7 @@ server {
 
 ---
 
-## 🔄 Paso 9: Reiniciar Nginx
+##  Paso 9: Reiniciar Nginx
 
 ```bash
 sudo nginx -t
@@ -152,7 +152,7 @@ sudo systemctl restart nginx
 
 ---
 
-## 🧪 Paso 10: Pruebas de backend
+## Paso 10: Pruebas de backend
 
 ```bash
 curl http://localhost:8081/api/info
@@ -162,7 +162,7 @@ curl http://localhost:8083/api/info
 
 ---
 
-## ⚖️ Paso 11: Prueba del balanceador
+##  Paso 11: Prueba del balanceador
 
 ```bash
 for i in {1..10}; do curl -s http://localhost/api/info; echo; done
@@ -184,7 +184,7 @@ El entorno en **WSL puede generar pequeñas variaciones en el orden de respuesta
 
 ---
 
-## ✅ Resultado esperado
+##  Resultado esperado
 
 * ✔ Node.js ejecutándose en 3 puertos
 * ✔ Nginx distribuyendo tráfico
